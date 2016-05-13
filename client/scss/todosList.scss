@@ -1,0 +1,69 @@
+@import "{}/client/scss/_layout.scss";
+
+#login-buttons {
+    display: block;
+}
+
+.new-task  {
+    input {
+        box-sizing: border-box;
+        padding: 10px 0;
+        background: transparent;
+        border: none;
+        width: 100%;
+        padding-right: 80px;
+        font-size: 1em;
+
+        &:focus {
+            outline: 0;
+        }
+    }
+
+    @include mediaQuires(S) {
+        input {
+            padding-bottom: 5px;
+        }
+    }
+}
+
+.delete {
+    float: right;
+    font-weight: bold;
+    background: none;
+    font-size: 1em;
+    border: none;
+    position: relative;
+}
+
+li.todo-list {
+    border-bottom: #eee solid 1px;
+
+    &.checked {
+        color: #888;
+        .text {
+            text-decoration: line-through;
+        }
+    }
+    &.private {
+        background: #eee;
+        border-color: #ddd;
+    }
+    .text {
+        margin-left: 10px;
+    }
+}
+
+.hide-completed {
+    float: right;
+}
+
+.toggle-private {
+    margin-left: 5px;
+}
+
+@include mediaQuires(S) {
+    .search {
+        width: 150px;
+        clear: both;
+    }
+}
