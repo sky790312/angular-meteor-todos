@@ -20,3 +20,5 @@ insecure                # Allow all DB writes from clients (for prototyping)
 angular-templates
 seba:minifiers-autoprefixer
 fourseven:scss
+accounts-password
+dotansimha:accounts-ui-angular
