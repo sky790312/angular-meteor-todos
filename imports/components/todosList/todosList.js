@@ -8,14 +8,33 @@ class TodosListCtrl {
   constructor($scope) {
     $scope.viewModel(this);
 
+    this.hideCompleted = false;
+
     this.helpers({
       tasks() {
+        const selector = {};
+
+        // hide completed - filter tasks
+        // $scope.getReactively : turn angular scope variables into meteor reactive variables
+        if (this.getReactively('hideCompleted')) {
+          selector.checked = {
+            $ne: true
+          };
+        }
+
         // sort tasks by newest time
-        return Tasks.find({}, {
+        return Tasks.find(selector, {
           sort: {
             createdAt: -1
           }
         });
+      },
+      incompleteCount() {
+        return Tasks.find({
+          checked: {
+            $ne: true
+          }
+        }).count();
       }
     })
   }
