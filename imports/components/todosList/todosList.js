@@ -45,28 +45,19 @@ class TodosListCtrl {
 
   addTask(task) {
     // insert new task into collection
-    Tasks.insert({
-      text: task,
-      createdAt: new Date,
-      owner: Meteor.userId(),
-      username: Meteor.user().username
-    });
+    Meteor.call('tasks.insert', task);
 
     // clear input
     this.newTask = '';
   }
 
-  setChecked(task) {
+  setCompleted(task) {
     // toggle the checked status
-    Tasks.update(task._id, {
-      $set: {
-        checked: !task.checked
-      },
-    });
+    Meteor.call('tasks.setCompleted', task._id, !task.checked);
   }
 
   removeTask(task) {
-    Tasks.remove(task._id);
+    Meteor.call('tasks.remove', task._id);
   }
 }
 
