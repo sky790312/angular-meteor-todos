@@ -20,3 +20,4 @@ seba:minifiers-autoprefixer
 fourseven:scss
 accounts-password
 dotansimha:accounts-ui-angular
+practicalmeteor:mocha
