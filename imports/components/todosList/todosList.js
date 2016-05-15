@@ -9,6 +9,8 @@ class TodosListCtrl {
   constructor($scope) {
     $scope.viewModel(this);
 
+    this.subscribe('tasks');
+
     this.hideCompleted = false;
 
     this.helpers({
@@ -58,6 +60,10 @@ class TodosListCtrl {
 
   removeTask(task) {
     Meteor.call('tasks.remove', task._id);
+  }
+
+  setPrivate(task) {
+    Meteor.call('tasks.setPrivate', task._id, !task.private);
   }
 }
 
