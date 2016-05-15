@@ -10,10 +10,38 @@ class TodosListCtrl {
 
     this.helpers({
       tasks() {
-        // Show newest tasks at the top
-        return Tasks.find({});
+        // sort tasks by newest time
+        return Tasks.find({}, {
+          sort: {
+            createdAt: -1
+          }
+        });
       }
     })
+  }
+
+  addTask(task) {
+    // insert new task into collection
+    Tasks.insert({
+      text: task,
+      createdAt: new Date
+    });
+
+    // clear input
+    this.newTask = '';
+  }
+
+  setChecked(task) {
+    // toggle the checked status
+    Tasks.update(task._id, {
+      $set: {
+        checked: !task.checked
+      },
+    });
+  }
+
+  removeTask(task) {
+    Tasks.remove(task._id);
   }
 }
 
