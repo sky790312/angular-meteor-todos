@@ -9,6 +9,7 @@ class TodosListCtrl {
   constructor($scope) {
     $scope.viewModel(this);
 
+    // meteor.publish task and $scope.subscribe
     this.subscribe('tasks');
 
     this.hideCompleted = false;

@@ -1,5 +1,15 @@
 @import "{}/client/scss/_layout.scss";
 
+.logo {
+    text-align: center;
+    margin: 40px 0;
+    > img {
+        width: 50%;
+        border: 1px solid white;
+        // padding: 20px;
+    }
+}
+
 #login-buttons {
     display: block;
 }
@@ -8,7 +18,7 @@
     input {
         box-sizing: border-box;
         padding: 10px 0;
-        background: transparent;
+        // background: transparent;
         border: none;
         width: 100%;
         padding-right: 80px;
